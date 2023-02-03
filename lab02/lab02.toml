@@ -1,0 +1,125 @@
+[project]
+timeout = 60
+
+[[tests]]
+name = "01"
+input = ["python3", "runxv6.py", "wc README"]
+expected = """
+wc README
+49 325 2305 README
+"""
+rubric = 5
+
+[[tests]]
+name = "02"
+input = ["python3", "runxv6.py", "wc -l README"]
+expected = """
+wc -l README
+49 README
+"""
+rubric = 5
+
+[[tests]]
+name = "03"
+input = ["python3", "runxv6.py", "listtest > listtest.txt; wc -l README listtest.txt"]
+expected = """
+listtest > listtest.txt; wc -l README listtest.txt
+49 README
+9 listtest.txt
+"""
+rubric = 5
+
+[[tests]]
+name = "04"
+input = ["python3", "runxv6.py", "cat README | wc -l"]
+expected = """
+cat README | wc -l
+49
+"""
+rubric = 5
+
+[[tests]]
+name = "05"
+input = ["python3", "runxv6.py", "echo FOO > r1; echo BAR > r2; echo BAZ > r3; cat r1 r2 r3 > r.txt; cat -n r.txt"]
+expected = """
+echo FOO > r1; echo BAR > r2; echo BAZ > r3; cat r1 r2 r3 > r.txt; cat -n r.txt
+     1  FOO
+     2  BAR
+     3  BAZ
+"""
+rubric = 10
+
+[[tests]]
+name = "06"
+input = ["python3", "runxv6.py", "listtest > listtest.txt; cat listtest.txt"]
+expected = """
+listtest > listtest.txt; cat listtest.txt
+[google.com, 142.251.46.174]
+[usfca.edu, 23.185.0.2]
+[mit.edu, 104.90.21.210]
+[openai.com, 13.107.238.57]
+Sorted:
+[google.com, 142.251.46.174]
+[mit.edu, 104.90.21.210]
+[openai.com, 13.107.238.57]
+[usfca.edu, 23.185.0.2]
+"""
+rubric = 10
+
+[[tests]]
+name = "07"
+input = ["python3", "runxv6.py", "listtest > listtest.txt; cat -n listtest.txt"]
+expected = """
+listtest > listtest.txt; cat -n listtest.txt
+     1  [google.com, 142.251.46.174]
+     2  [usfca.edu, 23.185.0.2]
+     3  [mit.edu, 104.90.21.210]
+     4  [openai.com, 13.107.238.57]
+     5  Sorted:
+     6  [google.com, 142.251.46.174]
+     7  [mit.edu, 104.90.21.210]
+     8  [openai.com, 13.107.238.57]
+     9  [usfca.edu, 23.185.0.2]
+"""
+rubric = 15
+
+[[tests]]
+name = "08"
+input = ["python3", "runxv6.py", "echo NE > s1; echo AL > s2; echo CA > s3; cat s1 s2 s3 > s.txt; sort s.txt"]
+expected = """
+echo NE > s1; echo AL > s2; echo CA > s3; cat s1 s2 s3 > s.txt; sort s.txt
+AL
+CA
+NE
+"""
+rubric = 15
+
+[[tests]]
+name = "09"
+input = ["python3", "runxv6.py", "sort listtest.txt"]
+expected = """
+sort listtest.txt
+Sorted:
+[google.com, 142.251.46.174]
+[google.com, 142.251.46.174]
+[mit.edu, 104.90.21.210]
+[mit.edu, 104.90.21.210]
+[openai.com, 13.107.238.57]
+[openai.com, 13.107.238.57]
+[usfca.edu, 23.185.0.2]
+[usfca.edu, 23.185.0.2]
+"""
+rubric = 15
+
+
+[[tests]]
+name = "10"
+input = ["python3", "runxv6.py", "cat s.txt | sort"]
+expected = """
+cat s.txt | sort
+AL
+CA
+NE
+"""
+rubric = 15
+
