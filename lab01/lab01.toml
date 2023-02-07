@@ -1,3 +1,6 @@
+[project]
+timeout = 300
+
 [[tests]]
 name = "01"
 input = ["python3", "runxv6.py", "hello"]
