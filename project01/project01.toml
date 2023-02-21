@@ -72,13 +72,13 @@ rubric = 10
 
 [[tests]]
 name = "05"
-input = ["python3", "runxv6.py", "memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A2 f 2 p s c 4096"]
+input = ["python3", "runxv6.py", "memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A3 f 2 p s c 4096"]
 expected = """
-memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A2 f 2 p s c 4096
+memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A3 f 2 p s c 4096
 [USED] name = A0 boff = 0 bsize = 532 doff = 32 dsize = 500
 [USED] name = A1 boff = 532 bsize = 532 doff = 564 dsize = 500
 [FREE] name = NONE boff = 1064 bsize = 532 doff = 1096 dsize = 500
-[USED] name = A2 boff = 1596 bsize = 532 doff = 1628 dsize = 500
+[USED] name = A3 boff = 1596 bsize = 532 doff = 1628 dsize = 500
 [FREE] name = NONE boff = 2128 bsize = 1968 doff = 2160 dsize = 1936
 malloc_summary():
 used  : 1500
@@ -92,11 +92,11 @@ rubric = 10
 
 [[tests]]
 name = "06"
-input = ["python3", "runxv6.py", "memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A2 f 0 f 2 f 1 p s c 4096"]
+input = ["python3", "runxv6.py", "memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A3 f 0 f 2 f 1 p s c 4096"]
 expected = """
-memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A2 f 0 f 2 f 1 p s c 4096
+memtest m 0 500 A0 m 1 500 A1 m 2 500 A2 m 3 500 A3 f 0 f 2 f 1 p s c 4096
 [FREE] name = NONE boff = 0 bsize = 1596 doff = 32 dsize = 1564
-[USED] name = A2 boff = 1596 bsize = 532 doff = 1628 dsize = 500
+[USED] name = A3 boff = 1596 bsize = 532 doff = 1628 dsize = 500
 [FREE] name = NONE boff = 2128 bsize = 1968 doff = 2160 dsize = 1936
 malloc_summary():
 used  : 500
