@@ -6,9 +6,69 @@ name = "01"
 input = ["python3", "runxv6.py", "ps"]
 expected = """
 $ ps
-PID=1 NAME=init SIZE=24576 STATE=sleep
-PID=2 NAME=sh SIZE=28672 STATE=sleep
-PID=3 NAME=ps SIZE=24576 STATE=run
+PID=1 NAME=init SIZE=24576
+PID=2 NAME=sh SIZE=28672
+PID=3 NAME=ps SIZE=24576
 """
-rubric = 5
+rubric = 20
+
+[[tests]]
+name = "02"
+input = ["python3", "runxv6.py", "ps", "ps"]
+expected = """
+$ ps
+PID=1 NAME=init SIZE=24576
+PID=2 NAME=sh SIZE=28672
+PID=3 NAME=ps SIZE=24576
+$ ps
+PID=1 NAME=init SIZE=24576
+PID=2 NAME=sh SIZE=28672
+PID=4 NAME=ps SIZE=24576
+"""
+rubric = 20
+
+[[tests]]
+name = "03"
+input = ["python3", "runxv6.py", "busymany 200 10", "ps"]
+expected = """
+$ busymany 200 10
+$ ps
+PID=1 NAME=init SIZE=24576
+PID=2 NAME=sh SIZE=28672
+PID=14 NAME=ps SIZE=24576
+PID=4 NAME=busy[A] SIZE=24576
+PID=5 NAME=busy[B] SIZE=24576
+PID=6 NAME=busy[C] SIZE=24576
+PID=7 NAME=busy[D] SIZE=24576
+PID=8 NAME=busy[E] SIZE=24576
+PID=9 NAME=busy[F] SIZE=24576
+PID=10 NAME=busy[G] SIZE=24576
+PID=11 NAME=busy[H] SIZE=24576
+PID=12 NAME=busy[I] SIZE=24576
+PID=13 NAME=busy[J] SIZE=24576
+"""
+rubric = 20
+
+[[tests]]
+name = "04"
+input = ["python3", "runxv6.py", "busymany 200 10", "ps > ps.out", "cat ps.out"]
+expected = """
+$ busymany 200 10
+$ ps > ps.out
+$ cat ps.out
+PID=1 NAME=init SIZE=24576
+PID=2 NAME=sh SIZE=28672
+PID=14 NAME=ps SIZE=24576
+PID=4 NAME=busy[A] SIZE=24576
+PID=5 NAME=busy[B] SIZE=24576
+PID=6 NAME=busy[C] SIZE=24576
+PID=7 NAME=busy[D] SIZE=24576
+PID=8 NAME=busy[E] SIZE=24576
+PID=9 NAME=busy[F] SIZE=24576
+PID=10 NAME=busy[G] SIZE=24576
+PID=11 NAME=busy[H] SIZE=24576
+PID=12 NAME=busy[I] SIZE=24576
+PID=13 NAME=busy[J] SIZE=24576
+"""
+rubric = 20
 
