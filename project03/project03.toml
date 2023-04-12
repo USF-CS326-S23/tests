@@ -35,7 +35,6 @@ $ busymany 200 10
 $ ps
 PID=1 NAME=init
 PID=2 NAME=sh
-PID=14 NAME=ps
 PID=4 NAME=busy[A]
 PID=5 NAME=busy[B]
 PID=6 NAME=busy[C]
@@ -46,6 +45,7 @@ PID=10 NAME=busy[G]
 PID=11 NAME=busy[H]
 PID=12 NAME=busy[I]
 PID=13 NAME=busy[J]
+PID=14 NAME=ps
 """
 rubric = 20
 
@@ -58,7 +58,6 @@ $ ps > ps.out
 $ cat ps.out
 PID=1 NAME=init
 PID=2 NAME=sh
-PID=14 NAME=ps
 PID=4 NAME=busy[A]
 PID=5 NAME=busy[B]
 PID=6 NAME=busy[C]
@@ -69,6 +68,7 @@ PID=10 NAME=busy[G]
 PID=11 NAME=busy[H]
 PID=12 NAME=busy[I]
 PID=13 NAME=busy[J]
+PID=14 NAME=ps
 """
 rubric = 20
 
