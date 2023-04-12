@@ -1,0 +1,74 @@
+[project]
+timeout = 60
+
+[[tests]]
+name = "01"
+input = ["python3", "runxv6.py", "ps"]
+expected = """
+$ ps
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=3 NAME=ps
+"""
+rubric = 20
+
+[[tests]]
+name = "02"
+input = ["python3", "runxv6.py", "ps", "ps"]
+expected = """
+$ ps
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=3 NAME=ps
+$ ps
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=4 NAME=ps
+"""
+rubric = 20
+
+[[tests]]
+name = "03"
+input = ["python3", "runxv6.py", "busymany 200 10", "ps"]
+expected = """
+$ busymany 200 10
+$ ps
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=14 NAME=ps
+PID=4 NAME=busy[A]
+PID=5 NAME=busy[B]
+PID=6 NAME=busy[C]
+PID=7 NAME=busy[D]
+PID=8 NAME=busy[E]
+PID=9 NAME=busy[F]
+PID=10 NAME=busy[G]
+PID=11 NAME=busy[H]
+PID=12 NAME=busy[I]
+PID=13 NAME=busy[J]
+"""
+rubric = 20
+
+[[tests]]
+name = "04"
+input = ["python3", "runxv6.py", "busymany 200 10", "ps > ps.out", "cat ps.out"]
+expected = """
+$ busymany 200 10
+$ ps > ps.out
+$ cat ps.out
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=14 NAME=ps
+PID=4 NAME=busy[A]
+PID=5 NAME=busy[B]
+PID=6 NAME=busy[C]
+PID=7 NAME=busy[D]
+PID=8 NAME=busy[E]
+PID=9 NAME=busy[F]
+PID=10 NAME=busy[G]
+PID=11 NAME=busy[H]
+PID=12 NAME=busy[I]
+PID=13 NAME=busy[J]
+"""
+rubric = 20
+
