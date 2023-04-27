@@ -1,0 +1,64 @@
+[project]
+timeout = 60
+
+[[tests]]
+name = "01"
+input = ["python3", "runxv6.py", "kpagestest 1"]
+expected = """
+$ kpagestest 1
+kpagetest diff = 16
+"""
+rubric = 5
+
+[[tests]]
+name = "02"
+input = ["python3", "runxv6.py", "kpagestest 32"]
+expected = """
+$ kpagestest 32
+kpagetest diff = 33
+"""
+rubric = 5
+
+[[tests]]
+name = "03"
+input = ["python3", "runxv6.py", "udirs"]
+expected = """
+$ udirs
+udirs() = 5
+"""
+rubric = 10
+
+[[tests]]
+name = "04"
+input = ["python3", "runxv6.py", "kdirs"]
+expected = """
+$ kdirs
+kdirs() = 72
+"""
+rubric = 10
+
+[[tests]]
+name = "05"
+input = ["python3", "runxv6.py", "smemtest 1"]
+expected = """
+$ smemtest 1
+[parent_pre] memcheck(0x0000000040000000, a, 4096) succeeded
+[child_pre] memcheck(0x0000000040000000, a, 4096) succeeded
+[child_post] memcheck(0x0000000040000000, b, 4096) succeeded
+[parent_post] memcheck(0x0000000040000000, b, 4096) succeeded
+[main] kpages() diff = 0
+"""
+rubric = 25
+
+[[tests]]
+name = "06"
+input = ["python3", "runxv6.py", "smemtest 123"]
+expected = """
+$ smemtest 123
+[parent_pre] memcheck(0x0000000040000000, a, 503808) succeeded
+[child_pre] memcheck(0x0000000040000000, a, 503808) succeeded
+[child_post] memcheck(0x0000000040000000, b, 503808) succeeded
+[parent_post] memcheck(0x0000000040000000, b, 503808) succeeded
+[main] kpages() diff = 0
+"""
+rubric = 25
