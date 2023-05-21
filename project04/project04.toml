@@ -1,5 +1,6 @@
 [project]
 timeout = 60
+subdir = "xv6"
 
 [[tests]]
 name = "01"

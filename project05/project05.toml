@@ -1,0 +1,10 @@
+[project]
+
+[[tests]]
+name = "01"
+input = ["python3", "runxv6.py", "kpagestest 1"]
+expected = """
+$ kpagestest 1
+kpagetest diff = 16
+"""
+rubric = 5
